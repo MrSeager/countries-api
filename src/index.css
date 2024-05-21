@@ -6,6 +6,53 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.cs-h{
+  min-height: 100vh;
+}
+
+.cs-bg-light{
+  background-color: hsl(0, 0%, 98%) !important;
+  transition: .5s;
+}
+
+.cs-bg-dark{
+  background-color: hsl(207, 26%, 17%) !important;
+  transition: .5s;
+}
+
+.cs-bg-el-light{
+  background-color: hsl(0, 0%, 100%) !important;
+  transition: .5s;
+}
+
+.cs-bg-el-dark{
+  background-color: hsl(209, 23%, 22%) !important;
+  transition: .5s;
+}
+
+.cs-text-color-light{
+  color: hsl(200, 15%, 8%) !important;
+  transition: .5s;
+}
+
+.cs-text-color-light::placeholder{
+  color: hsl(200, 15%, 8%) !important;
+  transition: .5s;
+}
+
+.cs-text-color-dark{
+  color: hsl(0, 0%, 100%) !important;
+  transition: .5s;
+}
+
+.cs-text-color-dark::placeholder{
+  color: hsl(0, 0%, 100%) !important;
+  transition: .5s;
+}
+
+.cs-fw-600{
+  font-weight: 600;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -15,15 +62,44 @@ code {
 .cs-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  gap: 50px;
 }
 
-.cs-img{
+.card-img-top {
+  height: 50%;
+  width: 100%;
   object-fit: cover;
-  border-radius: 55;
-  height: 100%;
 }
 
 .cs-fs{
   font-size: 13px;
+}
+
+.cs-dd-item-light:hover {
+  background-color: hsl(209, 23%, 22%) !important;
+  color: hsl(0, 0%, 100%) !important;
+}
+
+.cs-dd-item-dark:hover {
+  background-color: hsl(0, 0%, 100%) !important;
+  color: hsl(207, 26%, 17%) !important;
+}
+
+.cs-w-input{
+  width: 25% !important;
+}
+
+.cs-w-dd{
+  width: 15% !important;
+}
+
+@media (max-width: 991px){
+  .cs-grid{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cs-w-input{
+    width: 100% !important;
+  }
 }
