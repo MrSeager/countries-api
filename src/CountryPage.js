@@ -21,15 +21,15 @@ const CountryPage = ({country, darkMode}) => {
 
   return (
     <Row className={`mt-5 cs-text-color-${darkMode ? 'dark' : 'light'}`}>
-      <Col>
+      <Col xs={12} lg={6}>
         <Image fluid src={country.flag} alt='flag' />
       </Col>
-      <Col>
-        <Row>
+      <Col xs={12} lg={6} className='my-auto'>
+        <Row className='mt-4 mt-lg-0'>
           <h1 className='fw-bold h2'>{country.name}</h1>
         </Row>
         <Row>
-          <Col>
+          <Col xs={12} lg={6} className='mt-4'>
             <p className='m-0'><b>Native Name: </b>{country.nativeName}</p>
             <p className='m-0'>
               <b>Population: </b>{}
@@ -40,19 +40,18 @@ const CountryPage = ({country, darkMode}) => {
                 />
             </p>
             <p className='m-0'><b>Region: </b>{country.region}</p>
-            <p className='m-0'><b>Sub Region: </b>{country.subregion}</p>
-            <p className='m-0'><b>Capital: </b>{country.capital}</p>
+            <p className='m-0'><b>Sub Region: </b>{country.subregion != null ? country.subregion : 'None'}</p>
+            <p className='m-0'><b>Capital: </b>{country.capital != null ? country.capital : 'None'}</p>
           </Col>
-          <Col>
+          <Col xs={12} lg={6} className='mt-4'>
             <p className='m-0'><b>Top Level Domain: </b>{country.topLevelDomain}</p>
-            {country.currencies != null ?
-              (<p className='m-0'>
+            <p className='m-0'>
               <b>Currencies: </b>
-              {country.currencies.map((currency, index) => (
+              {country.currencies != null ? (country.currencies.map((currency, index) => (
               <span key={index}>
                   {index > 0 && ', '}
                   {currency.name}
-              </span>))}</p>) : ('')}
+              </span>))) : ('None')}</p>
             <p className='m-0'>
               <b>Languages: </b>
               {country.languages.map((languages, index) => (
@@ -62,18 +61,16 @@ const CountryPage = ({country, darkMode}) => {
               </span>))}
             </p>
           </Col>
-          {country.borders != null ? (
-            <Row>
+            <Row className='mt-4'> 
               <p className='m-0'>
                 <b>Border Countries: </b>
-                {country.borders.map((borders, index) => (
+                {country.borders != null ? (country.borders.map((borders, index) => (
                 <Badge bg='custom' key={index} className={`me-1 shadow cs-bg-el-${darkMode ? 'dark' : 'light'} cs-text-color-${darkMode ? 'dark' : 'light'}`}>
                     {index > 0}
                     {borders}
-                </Badge>))}
+                </Badge>))): ('None')}
               </p>
             </Row>
-          ) : ('')}
         </Row>
       </Col>
     </Row>
